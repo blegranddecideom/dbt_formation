@@ -1,0 +1,22 @@
+unit_tests:
+  - name: test__email_generation
+    model: dim__customers
+    given:
+      - input: ref('stg__customers')
+        rows:
+          - {customer_id: 1, first_name: "A.",   last_name: "Smith"}
+          - {customer_id: 2, first_name: "B.",   last_name: "Jones"}
+          - {customer_id: 3, first_name: "C.",   last_name: "Brown"}
+
+      - input: ref('fct__orders')
+        rows:
+          - {order_id: 101, customer_id: 1, order_date: "2024-01-10", amount: 50}
+          - {order_id: 102, customer_id: 1, order_date: "2024-02-12", amount: 30}
+          - {order_id: 103, customer_id: 2, order_date: "2024-03-15", amount: 40}
+          # C.Brown n'a pas de commande
+
+    expect:
+      rows:
+        - {customer_id: 1, first_name: "A.",   last_name: "Smith",   email: "a.smith@jaffleshop.gg"}
+        - {customer_id: 2, first_name: "B.",   last_name: "Jones",   email: "b.jones@jaffleshop.gg"}
+        - {customer_id: 3, first_name: "C.",   last_name: "Brown",   email: null}
