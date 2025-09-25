@@ -13,7 +13,8 @@ models:
       - name: order_id    
         data_tests:
           - unique
-      - name: status    
+      - name: status  
+        description : "{{doc(“order_status_jaffle_shop”)}}"
         data_tests:
           - accepted_values:
               arguments:
