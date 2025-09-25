@@ -51,3 +51,7 @@ models:
     03_marts:
       +materialized: table
       +schema: marts
+
+snapshots:
+  dbt_formation:
+    +schema: snapshot
