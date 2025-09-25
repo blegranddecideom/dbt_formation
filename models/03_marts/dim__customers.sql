@@ -19,9 +19,9 @@ select
     customers.customer_id,
     customers.first_name,
     customers.last_name,
-    if(customers.first_name is null
+    iff(customer_orders.number_of_orders is null
     , null
-    ,lower(concat(customers.last_name,customers.first_name,'@jaffleshop.gg'))
+    ,lower(concat(customers.first_name,customers.last_name,'@jaffleshop.gg'))
      ) as email,    
     
     customer_orders.first_order_date,
