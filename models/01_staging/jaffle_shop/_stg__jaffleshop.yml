@@ -4,23 +4,23 @@ models:
     columns:
       - name: customer_id    
         description: Column for Customer ID
-        data_tests:
+        tests:
           - unique
           - not_null
 
   - name: stg__orders
     columns:
       - name: order_id    
-        data_tests:
+        tests:
           - unique
       - name: status  
-      ##  description : {{doc("order_status"}}
-        data_tests:
+        description : "{{doc('order_status')}}"
+        tests:
           - accepted_values:
               arguments:
                 values: ['completed','placed','return_pending','returned','shipped']
       - name: customer_id    
-        data_tests:
+        tests:
           - relationships:
               arguments:
                 to: ref('stg__customers')
