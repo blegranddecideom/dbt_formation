@@ -19,7 +19,11 @@ select
     customers.customer_id,
     customers.first_name,
     customers.last_name,
-        lower(concat(customers.last_name,customers.first_name,'@jaffleshop.gg')) as email,
+    if(customers.first_name is null
+    , null
+    ,lower(concat(customers.last_name,customers.first_name,'@jaffleshop.gg'))
+     ) as email,    
+    
     customer_orders.first_order_date,
     customer_orders.most_recent_order_date,
     coalesce(customer_orders.number_of_orders, 0) as number_of_orders,
