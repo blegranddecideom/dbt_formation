@@ -1,7 +1,9 @@
 models:
   - name: stg__customers
+    description: Staging table for all customer
     columns:
       - name: customer_id    
+        description: Column for Customer ID
         data_tests:
           - unique
           - not_null
