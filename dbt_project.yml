@@ -39,8 +39,11 @@ models:
   dbt_formation:
     # Applies to all files under models/example/
     01_staging:
-      +materialized: view  
-    02_intermidiate:
       +materialized: view
+      +schema: staging
+    02_intermediate:
+      +materialized: view
+      +schema: intermediate
     03_marts:
       +materialized: table
+      +schema: marts
