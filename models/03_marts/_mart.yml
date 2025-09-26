@@ -1,0 +1,39 @@
+models:
+  - name: fct__orders
+    config:
+      latest_version: 1
+      versions:
+      - v: 2
+        columns:
+          - include: "*"
+            exclude:
+              - coupon_amount
+          - name: last_payment_created_at
+            data_type: date
+      - v: 1
+        config:
+          alias: fct__orders
+      contract:
+        enforced: true
+    columns:
+      - name: order_id
+        data_type: int
+        constraints:
+          - type: not_null
+          - type: unique
+      - name: customer_id
+        data_type: int           
+      - name: order_date
+        data_type: date
+      - name: amount
+        data_type: number
+      - name: bank_transfer_amount
+        data_type: number
+      - name: credit_card_amount
+        data_type: number
+      - name: coupon_amount
+        data_type: number
+      - name: gift_card_amount
+        data_type: number
+      - name: status
+        data_type: text
