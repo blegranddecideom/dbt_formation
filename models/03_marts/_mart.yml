@@ -12,7 +12,7 @@ models:
             data_type: date
       - v: 1
         config:
-          alias: fct__orders
+        alias: fct__orders
       contract:
         enforced: true
     columns:

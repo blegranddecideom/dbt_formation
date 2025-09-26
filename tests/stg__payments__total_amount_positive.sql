@@ -1,4 +1,4 @@
-{{config(enabled=false)}}
+{{config(enabled=true)}}
 
 select
     order_id as value_field,

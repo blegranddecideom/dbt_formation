@@ -19,7 +19,7 @@ SELECT
     op.credit_card_amount,
  --   op.coupon_amount,
     op.gift_card_amount,
-    max(orders.order_date,) over (partition by orders.customer_id) as last_payment_created_at 
+    max(orders.order_date) over (partition by orders.customer_id) as last_payment_created_at 
 
 from {{ ref('stg__orders') }} orders
     left join payments using (order_id)
