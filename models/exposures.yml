@@ -1,0 +1,17 @@
+exposures:
+
+  - name: qlik_reporting
+    label: qlik_reporting_label
+    type: analysis
+    maturity: low
+    url: NA
+    description: >
+      NA
+
+    depends_on:
+      - ref('fct__orders')
+      - ref('dim__customers')
+
+    owner:
+      name: LEGRAND Benjamin
+      email: blgreand@decideom.fr
