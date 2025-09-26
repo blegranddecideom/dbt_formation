@@ -39,3 +39,20 @@ models:
         data_type: number
       - name: status
         data_type: text
+
+  - name: dim__customers
+    description: Staging table for all customer
+    columns:
+      - name: first_name    
+        description: Column with the customer first name
+        tests:
+          - dbt_utils.not_empty_string
+      - name: last_name    
+        description: Column with the customer last name
+        tests:
+          - dbt_utils.not_empty_string
+      - name: email    
+        description: Column with the customer email
+        tests:
+          - dbt_utils.not_empty_string
+
